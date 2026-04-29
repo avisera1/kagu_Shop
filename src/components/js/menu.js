@@ -52,14 +52,21 @@ document.addEventListener('DOMContentLoaded', function () {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: none;
-      border: none;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       cursor: pointer;
-      font-size: 24px;
-      color: #333;
+      font-size: 20px;
+      color: #f4efe6;
       z-index: 1001;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(212, 175, 55, 0.5);
     }
 
     /* メニュー */
@@ -67,16 +74,18 @@ document.addEventListener('DOMContentLoaded', function () {
       position: fixed;
       top: 0;
       left: 0;
-      width: 50%;
+      width: 30%;
       height: 100vh;
-      background-color: #ffffff;
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
-      padding: 80px 20px 20px;
+      background: linear-gradient(135deg, rgba(18, 16, 14, 0.98) 0%, rgba(30, 26, 20, 0.95) 100%);
+      backdrop-filter: blur(8px);
+      box-shadow: 2px 0 16px rgba(0, 0, 0, 0.4);
+      padding: 80px 0 20px;
       box-sizing: border-box;
       transform: translateX(-100%);
       transition: transform 0.3s ease;
       z-index: 1000;
       overflow-y: auto;
+      border-right: 1px solid rgba(212, 175, 55, 0.2);
     }
 
     #hamburger-menu.active {
@@ -91,16 +100,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     .menu-list li {
       display: block;
-      padding: 16px 12px;
-      font-size: 18px;
-      border-bottom: 1px solid #eeeeee;
+      padding: 16px 24px;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       cursor: pointer;
-      color: #333333;
-      transition: background-color 0.2s ease;
+      color: #c5b9a8;
+      transition: all 0.2s ease;
+      font-family: "Noto Serif JP", serif;
+      letter-spacing: 0.5px;
     }
 
     .menu-list li:hover {
-      background-color: #f5f5f5;
+      background-color: rgba(212, 175, 55, 0.1);
+      color: #d4af37;
+      padding-left: 32px;
+      border-left: 3px solid #d4af37;
     }
 
     /* メニューが開いている時にオーバーレイを表示（オプション） */
@@ -111,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: 999;
     }
 
