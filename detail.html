@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>詳細 - 匠木工</title>
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+
+<header id="header"></header>
+
+<main>
+  <section class="card">
+    <a href="dashboard.html">← 戻る</a>
+    <h1 id="title"></h1>
+    <p id="desc"></p>
+
+    <div id="details"></div>
+  </section>
+</main>
+
+<footer id="footer"></footer>
+
+<script src="src/js/loader.js"></script>
+<script src="src/js/menu.js"></script>
+
+<script>
+const params = new URLSearchParams(location.search);
+const id = params.get('id');
+
+const data = {
+  kids: {
+    title: '子供向け家具',
+    desc: '成長に合わせた安全で使いやすい家具です',
+    details: '子供の成長段階に合わせて、機能や大きさをカスタマイズできます。安全性は最優先で、素材から設計まで細心の注意を払っています。'
+  },
+  adult: {
+    title: '大人向け家具',
+    desc: '高級感と機能性を兼ね備えた家具です',
+    details: 'ライフスタイルに合わせた洗練されたデザイン。素材の質感を大切にし、長く愛用できる家具をご提供します。'
+  },
+  corp: {
+    title: '法人向け家具',
+    desc: 'オフィス環境に最適な家具です',
+    details: '企業の空間に合わせた大型案件にも対応。耐久性と美しさを兼ね備えたプロフェッショナルな設計です。'
+  }
+};
+
+if (data[id]) {
+  document.getElementById('title').textContent = data[id].title;
+  document.getElementById('desc').textContent = data[id].desc;
+  document.getElementById('details').innerHTML = '<p>' + data[id].details + '</p>';
+} else {
+  document.getElementById('title').textContent = '見つかりません';
+  document.getElementById('desc').textContent = '指定されたページが見つかりました。';
+}
+</script>
+
+</body>
+</html>
