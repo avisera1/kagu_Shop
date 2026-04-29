@@ -50,8 +50,6 @@ body{
   padding:140px 20px;
   background:
     linear-gradient(90deg, rgba(10,8,6,.85), rgba(10,8,6,.35)),
-    url("https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1800&q=80")
-    center/cover no-repeat;
 }
 
 /* 上品な暗幕を追加 */
@@ -146,6 +144,7 @@ footer{
   color:var(--muted);
 }
 
+
 /* フェードイン */
 .fade{
   opacity:0;
@@ -155,7 +154,94 @@ footer{
 @keyframes fade{
   to{opacity:1; transform:none;}
 }
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 20px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+}
+
+/* ハンバーガー */
+.menu-btn {
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* ロゴ中央 */
+.logo {
+  position: static;
+  left: 50%;
+  transform: none;
+  justify-self: center;
+}
+
+.logo a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* お問い合わせ */
+.contact-btn {
+  position: static;
+  right: 20px;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 6px 14px;
+  text-decoration: none;
+}
+
+/* メニュー（ここが重要） */
+.nav {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  width: 240px;
+  background: rgba(20,16,12,.95);
+  padding: 20px;
+  border-radius: 10px;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: .3s;
+  pointer-events: none;
+}
+
+/* 開いた状態 */
+.nav.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+}
+
 </style>
+
+<script>
+function toggleMenu(btn) {
+  const menu = document.getElementById("menu");
+  const isOpen = menu.classList.toggle("active");
+  btn.setAttribute("aria-expanded", isOpen);
+}
+</script>
+
 </head>
 
 <body>
@@ -171,14 +257,6 @@ footer{
 
     <a href="#contact" class="contact-btn">お問い合わせ</a>
 
-    <nav id="menu" class="nav">
-      <ul>
-        <li><a href="#services">サービス</a></li>
-        <li><a href="#works">カテゴリ</a></li>
-        <li><a href="#blog">Q&A</a></li>
-        <li><a href="#about">店舗紹介</a></li>
-      </ul>
-    </nav>
 
   </div>
 </header>
