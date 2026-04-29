@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
       position: fixed;
       top: 0;
       left: 0;
-      width: 30%;
+      width: 20%;
       height: 100vh;
       background: linear-gradient(135deg, rgba(18, 16, 14, 0.98) 0%, rgba(30, 26, 20, 0.95) 100%);
       backdrop-filter: blur(8px);
