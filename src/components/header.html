@@ -1,21 +1,117 @@
 <header class="site-header">
   <div class="header-inner">
 
-    <!-- ロゴ -->
+    <!-- 左：menu-->
+    <button 
+      class="menu-btn" 
+      onclick="toggleMenu(this)"
+      aria-label="メニューを開閉"
+      aria-controls="menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+    <!-- 中央：ロゴ -->
     <h1 class="logo">
-      <a href="index.html">匠木工</a>
+      <a href="index.html">ATELIER</a>
     </h1>
 
-    <!-- ハンバーガー -->
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-    <!-- ナビゲーション -->
+    <!-- メニュー -->
     <nav id="menu" class="nav">
-      <a href="index.html">ホーム</a>
-      <a href="#services">サービス</a>
-      <a href="dashboard.html">実績</a>
-      <a href="#contact" class="contact-btn">お問い合わせ</a>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
     </nav>
 
   </div>
 </header>
+
+<style>
+.site-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* 左：ハンバーガー */
+.menu-btn {
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 中央：ロゴ（ここ重要） */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo a {
+  text-decoration: none;
+  color: #111;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* メニュー */
+.nav {
+  position: absolute;
+  top: 70px;
+  left: 20px; /* ← 左から出す */
+  width: 240px;
+  background: #c4b4b4;
+  padding: 30px;
+  border: 1px solid #c4b4b4;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.nav.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+</style>
+
+<script>
+function toggleMenu(btn) {
+  const menu = document.getElementById("menu");
+  const isOpen = menu.classList.toggle("active");
+  btn.setAttribute("aria-expanded", isOpen);
+}
+</script>
