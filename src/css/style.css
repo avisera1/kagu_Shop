@@ -17,7 +17,7 @@ body {
   line-height: 1.7;
 }
 
-main, header, footer {
+main {
   max-width: 720px;
   margin: 0 auto;
   padding: 0 20px;
@@ -60,99 +60,151 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-header h1 {
+.logo {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.logo a {
+  text-decoration: none;
+  color: var(--accent);
 }
 
 .header-inner {
-  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
+  padding: 14px 24px;
 }
 
-/* Menu Button */
+/* PC用ナビゲーション */
+.main-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--fg);
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: var(--accent);
+}
+
+.nav-contact-btn {
+  background: var(--accent);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s ease !important;
+}
+
+.nav-contact-btn:hover {
+  background: #c84a0d;
+}
+
+/* ハンバーガーボタン（モバイルのみ表示） */
 .menu-btn {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
   padding: 8px;
   display: none;
   color: var(--fg);
+  line-height: 1;
 }
 
+/* モバイル用サイドメニュー */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
+  padding: 20px 0;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.menu-close {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 8px 20px;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mobile-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu-list li a {
+  display: block;
+  padding: 14px 24px;
+  text-decoration: none;
+  color: var(--fg);
+  font-size: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-menu-list li a:hover {
+  background: #fff8ee;
+  color: var(--accent);
+}
+
+.menu-divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 8px 0;
+}
+
+/* オーバーレイ */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+/* レスポンシブ */
 @media (max-width: 768px) {
   .menu-btn {
     display: block;
   }
 
-  nav {
+  .main-nav {
     display: none;
   }
-}
-
-/* Navigation Menu */
-nav {
-  display: flex;
-  gap: 24px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--fg);
-  transition: color 0.2s ease;
-}
-
-nav a:hover {
-  color: var(--accent);
-}
-
-/* Sidebar Menu (Mobile) */
-#menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100vh;
-  background-color: #ffffff;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
-  padding: 60px 20px 20px;
-  box-sizing: border-box;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  z-index: 999;
-}
-
-#menu.active {
-  transform: translateX(0);
-}
-
-#menu ul.menu-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#menu ul.menu-list li {
-  display: block;
-  padding: 16px 12px;
-  font-size: 18px;
-  border-bottom: 1px solid #eeeeee;
-  cursor: pointer;
-  color: #333333;
-  transition: background-color 0.2s ease;
-}
-
-#menu ul.menu-list li:hover {
-  background-color: #f5f5f5;
 }
 
 /* Footer */
