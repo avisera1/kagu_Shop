@@ -1,8 +1,6 @@
 // メニュー設定
 const menuConfig = {
   items: [
-    { label: '苗', id: 'seedlings' },
-    { label: '家具', id: 'furniture' },
     { label: 'Q&A', id: 'faq' },
     { label: '店紹介', id: 'shop' },
     { label: 'サービス', id: 'services' }
