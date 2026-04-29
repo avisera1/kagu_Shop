@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
   style.textContent = `
     /* ハンバーガーボタン */
     .hamburger-btn {
+      position: fixed;
+      top: 16px;
+      left: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
