@@ -1,39 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>＜架空のオーダーメイド家具＞</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="hero">
-      <h1>＜架空のオーダーメイド家具＞</h1>
-      <p class="lead">＜キャッチコピー / 1〜2行の説明＞</p>
-    </header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>匠木工</title>
+<link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
 
-    <main>
-      <!-- ↓ 担当: ＜名前＞ -->
-      <section id="section-1" class="card">
-        <h2>＜セクション1のタイトル＞</h2>
-        <p>＜内容＞</p>
-      </section>
+<header>
+  <div class="header-inner">
+    <h1>匠木工</h1>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <nav id="menu">
+      <a href="index.html">ホーム</a>
+      <a href="#services">サービス</a>
+      <a href="dashboard.html">ダッシュボード</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
 
-      <!-- ↓ 担当: ＜名前＞ -->
-      <section id="section-2" class="card">
-        <h2>＜セクション2のタイトル＞</h2>
-        <p>＜内容＞</p>
-      </section>
+<section class="hero">
+  <h2>完全オーダーメイド家具</h2>
+</section>
 
-      <!-- ↓ 担当: ＜名前＞ -->
-      <section id="section-3" class="card">
-        <h2>＜セクション3のタイトル＞</h2>
-        <p>＜内容＞</p>
-      </section>
-    </main>
+<section id="services">
+  <h2>サービス</h2>
+  <div class="grid">
+    <a href="detail.html?id=kids">子供向け家具</a>
+    <a href="detail.html?id=adult">大人向け家具</a>
+    <a href="detail.html?id=corp">法人向け家具</a>
+  </div>
+</section>
 
-    <footer>
-      <small>© 2026 ＜チーム名＞</small>
-    </footer>
-  </body>
+<section id="contact">
+<h2>お問い合わせ</h2>
+<form action="https://formspree.io/f/yourID" method="POST">
+  <input type="text" name="name" placeholder="名前" required>
+  <input type="email" name="email" placeholder="メール" required>
+  <textarea name="message" placeholder="内容"></textarea>
+  <button type="submit">送信</button>
+</form>
+</section>
+
+<section>
+<h2>アクセス</h2>
+<iframe src="https://www.google.com/maps?q=福岡市&output=embed"></iframe>
+</section>
+
+<footer>
+<p>© 2026 匠木工</p>
+</footer>
+
+<script src="src/js/menu.js"></script>
+</body>
 </html>

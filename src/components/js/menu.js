@@ -2,7 +2,6 @@ function toggleMenu(){
   document.getElementById('menu').classList.toggle('active');
 }
 
-// ===== 追加コード =====
 // メニュー一覧の項目（横書きで一個ずつ表示）
 const menuItems = ['苗', '家具', 'Q&A', '店紹介', 'サービス'];
 
