@@ -8,7 +8,7 @@ const menuConfig = {
 };
 
 // ハンバーガーボタンクリック時のメニュー切り替え
-function toggleMenu() {
+function toggleHamburgerMenu() {
   const menu = document.getElementById('hamburger-menu');
   const btn = document.querySelector('.hamburger-btn');
   if (menu) {
@@ -33,11 +33,16 @@ function handleMenuClick(itemId, itemLabel) {
     }
   }
 
-  // 実装例：セクションへのスクロール
-  const target = document.getElementById(itemId);
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth' });
-  }
+  // メニューアニメーション完了後にスクロール
+  setTimeout(function () {
+    const target = document.getElementById(itemId);
+    if (target) {
+      const header = document.querySelector('.site-header');
+      const offset = header ? header.offsetHeight : 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+  }, 300);
 }
 
 // DOM 読み込み時の初期化
@@ -47,6 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
   style.textContent = `
     /* ハンバーガーボタン */
     .hamburger-btn {
+      position: fixed;
+      top: 16px;
+      left: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -72,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
       position: fixed;
       top: 0;
       left: 0;
-      width: 30%;
+      width: 20%;
       height: 100vh;
       background: linear-gradient(135deg, rgba(18, 16, 14, 0.98) 0%, rgba(30, 26, 20, 0.95) 100%);
       backdrop-filter: blur(8px);
@@ -140,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
   btn.setAttribute('aria-controls', 'hamburger-menu');
   btn.setAttribute('aria-expanded', 'false');
   btn.innerHTML = '☰';
-  btn.onclick = toggleMenu;
+  btn.onclick = toggleHamburgerMenu;
 
   // メニューコンテナを作成
   const menu = document.createElement('nav');
