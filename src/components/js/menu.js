@@ -8,7 +8,7 @@ const menuConfig = {
 };
 
 // ハンバーガーボタンクリック時のメニュー切り替え
-function toggleMenu() {
+function toggleHamburgerMenu() {
   const menu = document.getElementById('hamburger-menu');
   const btn = document.querySelector('.hamburger-btn');
   if (menu) {
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
   btn.setAttribute('aria-controls', 'hamburger-menu');
   btn.setAttribute('aria-expanded', 'false');
   btn.innerHTML = '☰';
-  btn.onclick = toggleMenu;
+  btn.onclick = toggleHamburgerMenu;
 
   // メニューコンテナを作成
   const menu = document.createElement('nav');
