@@ -33,11 +33,13 @@ function handleMenuClick(itemId, itemLabel) {
     }
   }
 
-  // 実装例：セクションへのスクロール
-  const target = document.getElementById(itemId);
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth' });
-  }
+  // メニューアニメーション完了後にスクロール
+  setTimeout(function () {
+    const target = document.getElementById(itemId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, 300);
 }
 
 // DOM 読み込み時の初期化
