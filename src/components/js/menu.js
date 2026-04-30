@@ -37,7 +37,10 @@ function handleMenuClick(itemId, itemLabel) {
   setTimeout(function () {
     const target = document.getElementById(itemId);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      const header = document.querySelector('.site-header');
+      const offset = header ? header.offsetHeight : 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
     }
   }, 300);
 }
